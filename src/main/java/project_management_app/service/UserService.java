@@ -45,7 +45,7 @@ public class UserService {
         return userRepository.getOne(email);
     } 
     public boolean isUserPresent(String email) {
-       User user =  userRepository.getOne(email);
+        User user =  userRepository.getOne(email);
         if(user != null) {
             return true;
         }else{

@@ -44,7 +44,7 @@ public class User implements Serializable {
     }
     @Id
     @Email
-    @NotEmpty
+    @NotEmpty(message = "Please enter valid email address")
     @Column(unique = true)
     public String getEmail() {
         return email;
@@ -53,7 +53,7 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    @NotEmpty(message = "Name should not be empty")
     public String getName() {
         return name;
     }

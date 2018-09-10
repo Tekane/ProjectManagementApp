@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+
 import project_management_app.model.User;
 import project_management_app.service.UserService;
 /**
@@ -20,7 +20,7 @@ import project_management_app.service.UserService;
  * @author tekane
  */
 @Controller
-public class HomeController {
+public class RegisterController {
     
     @Autowired
     private UserService userService;
@@ -33,15 +33,17 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String registerUser(@Valid User user,BindingResult bindingResult,ModelAndView modelAndView){
+    public String registerUser(@Valid User user,BindingResult bindingResult,Model model){
         if (bindingResult.hasErrors()) {
             return "views/registerForm";
         }
         if(userService.isUserPresent(user.getEmail())){
-            modelAndView.addObject("exits", true);
+            model.addAttribute("exits", true);
             return "views/registerForm";
+        }else{
+            userService.CreateUser(user);
+            return "views/success";
         }
-        userService.CreateAdmin(user);
-        return "views/success";
+        
     }
 }
