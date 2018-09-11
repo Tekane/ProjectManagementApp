@@ -37,13 +37,13 @@ public class RegisterController {
         if (bindingResult.hasErrors()) {
             return "views/registerForm";
         }
-        if(userService.isUserPresent(user.getEmail())){
-            model.addAttribute("exits", true);
-            return "views/registerForm";
+       /* if (userService.isUserPresent(user.getEmail())){
+             return "views/registerForm";
         }else{
             userService.CreateUser(user);
             return "views/success";
-        }
-        
+        }*/
+            userService.CreateUser(user);
+            return "views/success";
     }
 }
