@@ -48,6 +48,12 @@ public class ProjectManagementApplicationTests {
         System.out.println(user.getEmail());
         List<Task> tasks =  taskService.findUserTask(user);
         Assert.assertNotNull(tasks);
-       
     }
+    @Test
+    public  void testIsIsUserPresent(){
+        User user =  userService.findOne("phashaUser@gmail.com");
+        boolean  test =  userService.isUserPresent(user.getEmail());
+        System.out.println(test);
+    }
+    
 }
