@@ -45,7 +45,9 @@ public class ProjectManagementApplicationTests {
     @Test
     public void testTask(){
         User user = userService.findOne("phashaUser@gmail.com");
+        System.out.println(user.getEmail());
         List<Task> tasks =  taskService.findUserTask(user);
-       // Assert.assertNotNull(tasks);
+        Assert.assertNotNull(tasks);
+       
     }
 }

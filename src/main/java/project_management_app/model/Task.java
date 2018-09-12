@@ -6,6 +6,7 @@
 package project_management_app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -86,7 +87,7 @@ public class Task {
         this.description = description;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_EMAIL")
     public User getUser() {
         return user;

@@ -15,7 +15,5 @@ import project_management_app.model.User;
  */
 public interface UserRepository  extends JpaRepository<User, String>{
     public List<User> findByNameLike(String name);
-
-    public User findOne(String email);
     
 }
