@@ -42,18 +42,18 @@ public class UserService {
         userRepository.save(user);
     }
     public User findOne(String email){
-        return userRepository.getOne(email);
+        return userRepository.findOne(email);
     } 
     public boolean isUserPresent(String email) {
-        User user =  userRepository.getOne(email);
+        User user =  userRepository.findOne(email);
         return user != null;
     }
     public User findUserById(String email){
-        return userRepository.getOne(email);
+        return userRepository.findOne(email);
     }
 
     public List<User> findAll() {
-        return userRepository.findAll();
+        return (List<User>) userRepository.findAll();
     }
 
     public List<User> findByName(String name) {
