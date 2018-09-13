@@ -37,14 +37,14 @@ public class RegisterController {
         if (bindingResult.hasErrors()) {
             return "views/registerForm";
         }
-        boolean userExits =  userService.isUserPresent(user.getEmail());
+       // boolean userExits =  userService.isUserPresent(user.getEmail());
        /* if (userService.isUserPresent(user.getEmail())){
              return "views/registerForm";
         }else{
             userService.CreateUser(user);
             return "views/success";
         }*/
-            //userService.CreateUser(user);
+            userService.CreateUser(user);
             return "views/success";
     }
 }

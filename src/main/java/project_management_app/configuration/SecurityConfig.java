@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package project_management_app.configuration;
-
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 /**
  *
  * @author tphasha
@@ -37,11 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/register","/","/about","/login","/css/**","/webjars/**").permitAll()
                 .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/prifile").and().logout().logoutSuccessUrl("/login")
-                ;
+                .defaultSuccessUrl("/profile").and().logout().logoutSuccessUrl("/login");
     }
     @Bean
-    private PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder(){
       return new BCryptPasswordEncoder(); 
     }
     
