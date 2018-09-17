@@ -24,21 +24,24 @@ public class UserService {
     
     @Autowired
     private UserRepository  userRepository;
+    
      public void CreateUser(User user){
         BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
          Role userRole  = new Role("USER");
-        List<Role> roles =  new ArrayList<>();
-        roles.add(userRole);
-        userRepository.save(user);
+         List<Role> roles =  new ArrayList<>();
+         roles.add(userRole);
+         user.setRoles(roles);
+         userRepository.save(user);
     }
         
     public void CreateAdmin(User user){
         BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
-        Role userRole  = new Role("ADMIN");
-        List<Role> roles =  new ArrayList<>();
-        roles.add(userRole);
+        Role role = new Role("USER");
+        List<Role> roles = new ArrayList<>();
+        roles.add(role);
+        user.setRoles(roles);
         userRepository.save(user);
     }
     public User findOne(String email){

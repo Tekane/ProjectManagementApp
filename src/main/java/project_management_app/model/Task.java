@@ -53,7 +53,7 @@ public class Task {
     public void setId(long id) {
         this.id = id;
     }
-    //@NotEmpty
+    @NotEmpty
     public String getDate() {
         return date;
     }
