@@ -78,7 +78,6 @@ public class User implements Serializable {
     public List<Task> getTasks() {
         return tasks;
     }
-
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
@@ -88,7 +87,6 @@ public class User implements Serializable {
     public List<Role> getRoles() {
         return roles;
     }
-    
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
