@@ -38,7 +38,7 @@ public class UserService {
     public void CreateAdmin(User user){
         BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
-        Role role = new Role("USER");
+        Role role = new Role("ADMIN");
         List<Role> roles = new ArrayList<>();
         roles.add(role);
         user.setRoles(roles);
