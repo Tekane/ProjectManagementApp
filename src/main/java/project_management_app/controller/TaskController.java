@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import project_management_app.model.Task;
+import project_management_app.model.User;
 import project_management_app.service.TaskService;
 import project_management_app.service.UserService;
 /**
@@ -40,8 +41,8 @@ public class TaskController {
               return "views/taskForm";
          }
          String email = (String) httpSession.getAttribute("email");
-         taskService.addTask(task, userService.findOne(email));
+         User  user =  userService.findOne(email);
+         taskService.addTask(task, user);
          return "redirect:/users" ;
      }
-    
 }
