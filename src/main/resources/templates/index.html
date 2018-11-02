@@ -10,10 +10,13 @@
     <body>
         <div layout:fragment="content" class="container mySpace">
             <div class="jumbotron">
-               <img src="../static/img/image1.jpg" width="1000" th:src="@{img/image1.jpg}" class="mySlides"/>
-               <img src="../static/img/image2.jpg" width="1000" th:src="@{img/image2.jpg}" class="mySlides"/>
-               <img src="../static/img/image3.jpg" width="1000" th:src="@{img/image3.jpg}" class="mySlides"/>
-               <img src="../static/img/image4.jpg" width="1000" th:src="@{img/image4.jpg}" class="mySlides"/>
+                <div id="slider">
+                    <div id="box">
+                      <img src="../static/img/image1.jpg" th:src="@{img/image1.jpg}" class="mySlides"/>
+                    </div>
+                    <button class="prew" onclick="preImage()"><</button>
+                    <button class="next" onclick="nextImage()">></button>
+                </div>
             </div>
         </div>
     </body>

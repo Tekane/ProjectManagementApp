@@ -1,40 +1,15 @@
-var slideIndex = 1;
-showDivs(slideIndex);
+var slider_content =  document.getElementById('box');
+//Contains images in an array
+var image  =  ['image1','image2','image3','image4'];
 
-function plusDivs(n) {
-    showDivs(slideIndex += n);
-}
+var i =  image.length;
 
-function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    if (n > x.length) {slideIndex = 1} 
-    if (n < 1) {slideIndex = x.length} ;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none"; 
-    }
-    x[slideIndex-1].style.display = "block"; 
-}
-
-
-
-/*var i = 0;
-var images  = [];
-var time = 3000;
-
-images[0] = 'image1.jpg';
-images[1] = 'image2.jpg';
-images[2] = 'image3.jpg';
-images[3] = 'image4.jpg';
-
-function chanegImg(){
-    document.slide.src = images[i];
-    if(i < images.length - 1){
-        i++;
+//Function for sliding 
+function nextImage(){
+    if(i < image.length){
+        i = i + 1;
     }else{
-       i = 0; 
+        i = 1;
     }
-    setTimeout("changeImg()",time);
+    slider_content.innerHTML = "<img scr="+image[i-1]+".jpg>";
 }
-
-window.onload = chanegImg;*/
